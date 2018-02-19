@@ -6,35 +6,38 @@
 #include "Resource.h"
 #include <iostream>
 #include <vector>
-#include <fstream>
+#include <deque>
+
 
 class Model
 {
 private:
-	//Model Loader Stuff
-	vector<float> m_indexedVertices;
-	vector<unsigned int> m_faceIndices;
+	std::vector<glm::vec3> m_vertices;
+	std::vector<glm::vec2> m_textureUVs;
+	std::vector<glm::vec3> m_normals;
 
+	std::vector<float> m_fVertices;
+	std::vector<float> m_fTextureUVs;
+	std::vector<float> m_fNormals;
+	
 	GLuint m_vao;
 	GLuint m_vboVertices;
+	GLuint m_vboTextureUVs;
+	GLuint m_vboNormals;
+
+
 	glm::vec3 m_colour;
-	std::vector<float> m_vertices;
 
-	float xRot = 0;
-	float yRot = 0;
-	float zRot = 0;
-
-	float xPos = 0;
-	float yPos = 0;
-	float zPos = 0;
-
+	glm::vec3 m_rotation;
+	glm::vec3 m_postion;
 
 	void loadModel();
 	glm::mat4 m_modelMatrix;
 
 public:
 	Model();
-	void readModelFromFile(std::string filePath);
+	Model(std::vector<glm::vec3> vertices, std::vector<glm::vec2> textureUVs, std::vector<glm::vec3> normals);
+	Model(std::vector<float> &vertices, std::vector<float> &textureUVs, std::vector<float> &normals);
 	void setColour(float r, float g, float b);
 	void setPosition(float x, float y, float z);
 	void setRotation(float x, float y, float z, bool degrees = false);

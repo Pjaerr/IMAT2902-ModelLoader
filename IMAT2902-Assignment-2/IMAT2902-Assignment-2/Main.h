@@ -20,17 +20,11 @@ class Main
 	/*! Camera positions (X, Y, Z)*/
 	float m_cameraX{ 0 };
 	float m_cameraY{ 0 };
-	float m_cameraZ{ 2.5f };
+	float m_cameraZ{ 4.0f };
 
 	/*! Matrices*/
 	glm::mat4 m_viewMatrix; //!< Contains data for the view.
 	glm::mat4 m_projectionMatrix; //!< Contains data for the projection.
-
-	/*! Temporary variables for testing rotation of models.*/
-	float m_xAngle{ 0.0f };
-	float m_yAngle{ 0.0f };
-	float m_zAngle{ 0.0f };
-
 
 	float m_aspectRatio; //!< The aspect ratio of the view.
 

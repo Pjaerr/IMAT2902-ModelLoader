@@ -1,8 +1,9 @@
 #include "Scene.h"
+#include "cmath"
 
 Scene::Scene()
 {
-
+	m_modelLoader = ModelLoader();
 }
 Scene::~Scene()
 {
@@ -14,8 +15,7 @@ Scene::~Scene()
 */
 void Scene::Start()
 {
-	simpleCube = Model();
-	simpleCube.readModelFromFile("./Models/simpleCube.obj");
+	simpleCube = m_modelLoader.loadFromObj("./Models/suzanne.obj");
 }
 
 /*! The Update function runs every tick and is used to manage Model transformations
@@ -24,7 +24,11 @@ void Scene::Start()
 */
 void Scene::Update()
 {
-
+	m_yAngle += 80.0f;
+	simpleCube.setColour(1.0f, 1.0f, 1.0f);
+	simpleCube.setRotation(0, m_yAngle, 0, true);
+	simpleCube.setPosition(0.0f, 0.0f, 0.0f);
+	
 }
 
 /*! The Render function calls the draw function of every Model being used

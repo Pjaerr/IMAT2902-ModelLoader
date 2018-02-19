@@ -9,8 +9,10 @@
 class Scene
 {
 private:
-
 	Model simpleCube; //!< Temporary cube model for testing.
+
+	//Temporary rotation testing.
+	float m_yAngle = 0.0f;
 
 public:
 	/*! Scene default constructor.*/
@@ -34,4 +36,6 @@ public:
 	*	in the scene.
 	*/
 	void Render(GLuint &program);
+
+	ModelLoader m_modelLoader;
 };

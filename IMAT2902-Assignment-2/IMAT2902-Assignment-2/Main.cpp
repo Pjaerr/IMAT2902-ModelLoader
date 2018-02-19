@@ -32,9 +32,6 @@ void Main::DestroyGLWindow()
 	m_win32OpenGL.TearDownGLContext();
 }
 
-
-Model simpleCube;
-
 /*! Initiates the computation of both the View and Projection matrices. Sends both the
 *	matrices as well as the lighting vectors to the shader and then setups the Scene object
 *	which controls the models within the scene.
@@ -59,10 +56,6 @@ void Main::PrepareToDraw()
 	Win32OpenGL::SendUniformVector3ToShader(program, m_lightColourSpecular, "light_colour_specular");
 	Win32OpenGL::SendUniformVector3ToShader(program, m_lightColourDiffuse, "light_colour_diffuse");
 	Win32OpenGL::SendUniformVector3ToShader(program, m_lightColourAmbient, "light_colour_ambient");
-
-	/*Default surface colour sent the shader. TODO: Each model should do this itself.*/
-	glm::vec3 surfaceColour{ 1.0, 1.0, 0.0 };
-	Win32OpenGL::SendUniformVector3ToShader(program, surfaceColour, "surface_colour");
 
 	scene.Start(); //Start the Scene.
 }
