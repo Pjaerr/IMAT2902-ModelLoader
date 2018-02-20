@@ -7,20 +7,11 @@ Model::Model()
 	m_postion = glm::vec3(0, 0, 0);
 }
 
-Model::Model(std::vector<glm::vec3> vertices, std::vector<glm::vec2> textureUVs, std::vector<glm::vec3> normals)
+Model::Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals)
 {
-	m_vertices = vertices;
-	m_textureUVs = textureUVs;
-	m_normals = normals;
-
-	loadModel();
-}
-
-Model::Model(std::vector<float> &vertices, std::vector<float> &textureUVs, std::vector<float> &normals)
-{
-	m_fVertices.swap(vertices);
-	m_fTextureUVs.swap(textureUVs);
-	m_fNormals.swap(normals);
+	m_fVertices = vertices;
+	m_fTextureUVs = textureUVs;
+	m_fNormals = normals;
 
 	loadModel();
 }
@@ -55,8 +46,8 @@ void Model::loadModel()
 	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	glEnableVertexAttribArray(0); //Vertices are element 0 in the VAO.
-	glEnableVertexAttribArray(1); //Vertices are element 0 in the VAO.
-	glEnableVertexAttribArray(2); //Vertices are element 0 in the VAO.
+	glEnableVertexAttribArray(1); //Textures are element 1 in the VAO.
+	glEnableVertexAttribArray(2); //Normals are element 2 in the VAO.
 }	 
 
 void Model::setColour(float r, float g, float b)
@@ -97,6 +88,7 @@ void Model::draw(GLuint &program)
 	m_modelMatrix = glm::mat4(1.0f); //Initialise model matrix as a 4x4 identity matrix.
 	
 	
+	m_modelMatrix = glm::translate(m_modelMatrix, m_postion);
 
 	/*Rotate the model matrix by the x, y and z Rot variables.*/
 	if (m_rotation.x > 0)m_modelMatrix = glm::rotate(m_modelMatrix, (float)glm::radians((float)m_rotation.x), glm::vec3(1, 0, 0));
@@ -105,13 +97,12 @@ void Model::draw(GLuint &program)
 	
 	if (m_rotation.z > 0)m_modelMatrix = glm::rotate(m_modelMatrix, (float)glm::radians((float)m_rotation.z), glm::vec3(0, 0, 1));
 	
-	m_modelMatrix = glm::translate(m_modelMatrix, m_postion);
 	
 
 	Win32OpenGL::SendUniformMatrixToShader(program, m_modelMatrix, "model_matrix"); //Send the model matrix to the shaders.
 	
 	glBindVertexArray(m_vao);
-	GLuint numberOfElements = m_fVertices.size() * sizeof(float);
+	GLuint numberOfElements = m_fVertices.size() / 3;
 	glDrawArrays(GL_TRIANGLES, 0, numberOfElements);
 	glBindVertexArray(0);
 }

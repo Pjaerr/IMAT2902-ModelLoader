@@ -37,7 +37,7 @@ private:
 public:
 	Model();
 	Model(std::vector<glm::vec3> vertices, std::vector<glm::vec2> textureUVs, std::vector<glm::vec3> normals);
-	Model(std::vector<float> &vertices, std::vector<float> &textureUVs, std::vector<float> &normals);
+	Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals);
 	void setColour(float r, float g, float b);
 	void setPosition(float x, float y, float z);
 	void setRotation(float x, float y, float z, bool degrees = false);

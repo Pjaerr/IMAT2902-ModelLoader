@@ -84,11 +84,7 @@ void Main::Update()
 *	For now it handles moving the camera around the scene.*/
 void Main::HandleInput(unsigned char virtualKeyCode)
 {
-	// add code for interaction here
-	if (virtualKeyCode == VK_SPACE)
-	{
-		// no code needed here
-	}
+	scene.keyIsPressed(virtualKeyCode);
 }
 
 /*! Handles the window being resized and updating OpenGL of the action so it can

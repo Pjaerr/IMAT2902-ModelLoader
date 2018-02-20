@@ -9,10 +9,21 @@
 class Scene
 {
 private:
-	Model simpleCube; //!< Temporary cube model for testing.
+	Model cubes[5]; //!< Temporary cube models for testing.
+	int m_numberOfCubes;
+
+	/*! Models should be loaded via m_modelLoader in here.*/
+	void loadModels();
+
+	/*! Model::setPosition() and Model::setRotation() to be called on models in here when
+	only happening once. Constant postion/rotation changes should be placed in Update()*/
+	void setModelTransformations();
 
 	//Temporary rotation testing.
 	float m_yAngle = 0.0f;
+
+	float m_x = 0;
+	float m_y = 0;
 
 public:
 	/*! Scene default constructor.*/
@@ -25,6 +36,8 @@ public:
 	*	that only needs to happen once, such as creating a Model should occur here.
 	*/
 	void Start();
+
+	void keyIsPressed(unsigned char key);
 
 	/*! The Update function runs every tick and is used to manage Model transformations 
 	*	and other actions that need to occur every tick that aren't directly related

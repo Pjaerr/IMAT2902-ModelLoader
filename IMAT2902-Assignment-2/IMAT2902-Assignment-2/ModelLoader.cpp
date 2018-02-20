@@ -145,6 +145,15 @@ void ModelLoader::parseFaceData(const char * line, FILE * file)
 */
 Model ModelLoader::loadFromObj(const char * filePath)
 {
+	/*Clear the previous model load if using the same instance of ModelLoader
+	for multiple models.*/
+	finalVertices.clear();
+	finalTextureUVs.clear();
+	finalNormals.clear();
+	unindexedNormals.clear();
+	unindexedUVs.clear();
+	unindexedVertices.clear();
+
 	FILE * file;
 	fopen_s(&file, filePath, "r"); //Open the file at filePath in read mode.
 

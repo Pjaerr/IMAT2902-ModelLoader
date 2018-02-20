@@ -18,9 +18,9 @@ class Main
 	Win32OpenGL m_win32OpenGL; //!< OpenGL helper class.
 
 	/*! Camera positions (X, Y, Z)*/
-	float m_cameraX{ 0 };
-	float m_cameraY{ 0 };
-	float m_cameraZ{ 4.0f };
+	float m_cameraX{ 0.0f };
+	float m_cameraY{ 0.0f };
+	float m_cameraZ{ 5.0f };
 
 	/*! Matrices*/
 	glm::mat4 m_viewMatrix; //!< Contains data for the view.
