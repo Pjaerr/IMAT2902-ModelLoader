@@ -5,11 +5,12 @@
 #pragma once
 #include "ModelLoader.h"
 #include "Model.h"
+#include "Camera.h"
 
 class Scene
 {
 private:
-	Model cubes[5]; //!< Temporary cube models for testing.
+	Model cubes[1]; //!< Temporary cube models for testing.
 	int m_numberOfCubes;
 
 	/*! Models should be loaded via m_modelLoader in here.*/
@@ -51,4 +52,8 @@ public:
 	void Render(GLuint &program);
 
 	ModelLoader m_modelLoader;
+
+	Camera camera;
+
+	float m_cameraMovementSpeed = 2.0f;
 };

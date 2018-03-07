@@ -122,6 +122,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="InitProgram.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -132,6 +133,7 @@
     <ClCompile Include="Win32OpenGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="InitProgram.h" />
     <ClInclude Include="Log.h" />

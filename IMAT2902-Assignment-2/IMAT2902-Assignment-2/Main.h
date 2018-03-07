@@ -12,6 +12,7 @@
 #include "resource.h"
 #include "Log.h"
 #include "Scene.h"
+#include "Camera.h"
 
 class Main
 {
@@ -23,8 +24,8 @@ class Main
 	float m_cameraZ{ 5.0f };
 
 	/*! Matrices*/
-	glm::mat4 m_viewMatrix; //!< Contains data for the view.
-	glm::mat4 m_projectionMatrix; //!< Contains data for the projection.
+	/*glm::mat4 m_viewMatrix; //!< Contains data for the view.
+	glm::mat4 m_projectionMatrix; //!< Contains data for the projection.*/
 
 	float m_aspectRatio; //!< The aspect ratio of the view.
 
@@ -71,12 +72,4 @@ public:
 	*	compute the correct projection matrix.
 	*/
 	void Resize(HDC hdc, RECT rect);
-
-	/*! Computes a projection matrix and stores it as a glm::mat4 inside of m_projectionMatrix*/
-	void ComputeProjectionMatrix();
-
-	/*! Computes a view matrix that allows the implementation of a camera. Stores the matrix as
-	*	a glm::mat4 inside of m_viewMatrix.
-	*/
-	void ComputeViewMatrix();
 };

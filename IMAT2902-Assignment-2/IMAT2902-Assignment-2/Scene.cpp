@@ -14,16 +14,49 @@ void Scene::loadModels()
 {
 	m_numberOfCubes = sizeof(cubes) / sizeof(cubes[0]);
 
-	/*Load models*/
-	for (int i = 0; i < m_numberOfCubes; i++)
-	{
-		cubes[i] = m_modelLoader.loadFromObj("./Models/suzanne.obj");
-	}
+	cubes[0] = m_modelLoader.loadFromObj("./Models/suzanne.obj");
 }
 
 void Scene::keyIsPressed(unsigned char key)
 {
 	//Check for keyboard input here using VK_keyname
+
+	/*Temporary Rotation code with arrow keys.*/
+	if (key == VK_LEFT)
+	{
+		camera.rotate(-2, 0);
+	}
+	if (key == VK_RIGHT)
+	{
+		camera.rotate(2, 0);
+	}
+
+	if (key == VK_UP)
+	{
+		camera.rotate(0, 2);
+	}
+	if (key == VK_DOWN)
+	{
+		camera.rotate(0, -2);
+	}
+
+	if (key == 0x57)
+	{
+		camera.move(Direction::forwards, m_cameraMovementSpeed);
+	}
+	else if (key == 0x53)
+	{
+		camera.move(Direction::backwards, m_cameraMovementSpeed);
+	}
+
+	if (key == 0x41)
+	{
+		camera.move(Direction::left, m_cameraMovementSpeed);
+	}
+	else if (key == 0x44)
+	{
+		camera.move(Direction::right, m_cameraMovementSpeed);
+	}
 }
 
 void Scene::setModelTransformations()
@@ -66,4 +99,8 @@ void Scene::Render(GLuint &program)
 	{
 		cubes[i].draw(program);
 	}
+
+
+	//Send the camera's view matrix to the shader.
+	Win32OpenGL::SendUniformMatrixToShader(program, camera.viewMatrix, "view_matrix");
 }

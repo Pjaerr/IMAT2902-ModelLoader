@@ -3,10 +3,8 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include "Win32OpenGL.h"
-#include "Resource.h"
 #include <iostream>
 #include <vector>
-#include <deque>
 
 
 class Model
@@ -32,7 +30,7 @@ private:
 	glm::vec3 m_postion;
 
 	void loadModel();
-	glm::mat4 m_modelMatrix;
+	
 
 public:
 	Model();
@@ -42,4 +40,5 @@ public:
 	void setPosition(float x, float y, float z);
 	void setRotation(float x, float y, float z, bool degrees = false);
 	void draw(GLuint &program);
+	glm::mat4 m_modelMatrix;
 };

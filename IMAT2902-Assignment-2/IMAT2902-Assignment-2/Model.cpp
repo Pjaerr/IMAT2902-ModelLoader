@@ -97,8 +97,6 @@ void Model::draw(GLuint &program)
 	
 	if (m_rotation.z > 0)m_modelMatrix = glm::rotate(m_modelMatrix, (float)glm::radians((float)m_rotation.z), glm::vec3(0, 0, 1));
 	
-	
-
 	Win32OpenGL::SendUniformMatrixToShader(program, m_modelMatrix, "model_matrix"); //Send the model matrix to the shaders.
 	
 	glBindVertexArray(m_vao);
