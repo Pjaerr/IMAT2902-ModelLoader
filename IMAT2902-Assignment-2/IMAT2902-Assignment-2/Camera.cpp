@@ -73,7 +73,7 @@ void Camera::computeProjectionMatrix()
 
 	// input variables
 	float zNear = 0.1f;		// clipping plane
-	float zFar = 100.0f;	// clipping plane
+	float zFar = m_drawDistance;	// clipping plane
 	float fov = static_cast<float>(67.0f * oneDegreeInRadians); // convert 67 degrees to radians
 
 	float range = tan(fov * 0.5f) * zNear;
@@ -118,8 +118,8 @@ void Camera::move(Direction dir, float speed)
 
 void Camera::rotate(float x, float y)
 {
-	yaw += x;
-	pitch += y;
+	yaw += x / m_sensitivity;
+	pitch += y / m_sensitivity;
 
 	if (pitch > 89.0f) //Stop the camera from rotating up and around 360 degrees.
 	{

@@ -2,7 +2,7 @@
 
 ModelLoader::ModelLoader()
 {
-
+	textureLoader = TextureLoader();
 }
 ModelLoader::~ModelLoader()
 {
@@ -87,55 +87,58 @@ void ModelLoader::parseFaceData(const char * line, FILE * file)
 			&vertexIndex.at(1), &textureUvIndex.at(1), &vertexNormalIndex.at(1),
 			&vertexIndex.at(2), &textureUvIndex.at(2), &vertexNormalIndex.at(2));
 
-		if (piecesOfData != 9)
+
+		if (piecesOfData == 9)
 		{
-			ERROR("This type of file cannot be read by this model loader.");
-			throw "This type of file cannot be read by this model loader.";
-		}
-
-		/*Go through each vertex (v) of each triangle.*/
-		for (unsigned int i = 0; i < vertexIndex.size(); i++)
-		{
-			unsigned int index = vertexIndex.at(i) - 1; //The index to vertex position.
-
-			index = 3 * index;
-
-			/*The position of the current vertex in the unindexed vertices is
-			the current index in vertexIndices -1 as OBJ indexing starts at 1.*/
-			for (int i = 0; i < 3; i++)
+			/*Go through each vertex (v) of each triangle.*/
+			for (unsigned int i = 0; i < vertexIndex.size(); i++)
 			{
-				finalVertices.push_back(unindexedVertices.at(index + i));
+				unsigned int index = vertexIndex.at(i) - 1; //The index to vertex position.
+
+				index = 3 * index;
+
+				/*The position of the current vertex in the unindexed vertices is
+				the current index in vertexIndices -1 as OBJ indexing starts at 1.*/
+				for (int i = 0; i < 3; i++)
+				{
+					finalVertices.push_back(unindexedVertices.at(index + i));
+				}
+			}
+
+			/*Go through each vertex texure uv (vt) of each triangle.*/
+			for (unsigned int i = 0; i < textureUvIndex.size(); i++)
+			{
+				unsigned int index = textureUvIndex.at(i) - 1; //The index to the position of the texture UV.
+
+				index = 2 * index;
+
+				/*The position of the current UV in the unindexed UVs is
+				the current index in uvIndices -1 as OBJ indexing starts at 1.*/
+				for (int i = 0; i < 2; i++)
+				{
+					finalTextureUVs.push_back(unindexedUVs.at(index + i));
+				}
+			}
+
+
+			/*Go through each vertex normal (vn) of each triangle.*/
+			for (unsigned int i = 0; i < vertexNormalIndex.size(); i++)
+			{
+				unsigned int index = vertexNormalIndex.at(i) - 1; //The index to the position of the vertex normal.
+
+				index = 3 * index;
+
+				/*The position of the current normal in the unindexed normals is
+				the current index in normalIndices -1 as OBJ indexing starts at 1.*/
+				for (int i = 0; i < 3; i++)
+				{
+					finalNormals.push_back(unindexedNormals.at(index + i));
+				}
 			}
 		}
-
-		/*Go through each vertex texure uv (vt) of each triangle.*/
-		for (unsigned int i = 0; i < textureUvIndex.size(); i++)
+		else
 		{
-			unsigned int index = textureUvIndex.at(i) - 1; //The index to the position of the texture UV.
-
-			index = 2 * index;
-
-			/*The position of the current UV in the unindexed UVs is
-			the current index in uvIndices -1 as OBJ indexing starts at 1.*/
-			for (int i = 0; i < 2; i++)
-			{
-				finalTextureUVs.push_back(unindexedUVs.at(index + i));
-			}
-		}
-
-		/*Go through each vertex normal (vn) of each triangle.*/
-		for (unsigned int i = 0; i < vertexNormalIndex.size(); i++)
-		{
-			unsigned int index = vertexNormalIndex.at(i) - 1; //The index to the position of the vertex normal.
-
-			index = 3 * index;
-
-			/*The position of the current normal in the unindexed normals is
-			the current index in normalIndices -1 as OBJ indexing starts at 1.*/
-			for (int i = 0; i < 3; i++)
-			{
-				finalNormals.push_back(unindexedNormals.at(index + i));
-			}
+			//TODO: Split up the f line first, and then assign values. fscanf breaks things when line follows v//vn not v/vt/vn
 		}
 	}
 }
@@ -143,7 +146,7 @@ void ModelLoader::parseFaceData(const char * line, FILE * file)
 /*! Loads a model from an OBJ file.
 *\param filePath The filepath containing the OBJ file.
 */
-Model ModelLoader::loadFromObj(const char * filePath)
+Model ModelLoader::loadFromObj(const char * modelFilePath)
 {
 	/*Clear the previous model load if using the same instance of ModelLoader
 	for multiple models.*/
@@ -155,11 +158,11 @@ Model ModelLoader::loadFromObj(const char * filePath)
 	unindexedVertices.clear();
 
 	FILE * file;
-	fopen_s(&file, filePath, "r"); //Open the file at filePath in read mode.
+	fopen_s(&file, modelFilePath, "r"); //Open the file at filePath in read mode.
 
 	if (file == NULL)
 	{
-		throw "OBJ file not found";
+		throw std::invalid_argument("OBJ file not found");
 	}
 
 	/*Read each line of the file until end of file is reached.*/
@@ -177,12 +180,16 @@ Model ModelLoader::loadFromObj(const char * filePath)
 		/*If the next line is v, vt or vn, parse it and add it to the relevant unindexed vector.
 		If the next line isn't a v, vt or vn line, check if it is an f line, and if so parse it and
 		store the result in the final vector[s].*/
-		if (!parseVertexData(line, file)) 
+		if (!parseVertexData(line, file))
 		{
 			parseFaceData(line, file);
 		}
 	}
 
-	return Model(finalVertices, finalTextureUVs, finalNormals);
+	/*GLuint textureID;
+
+	textureLoader.LoadBMP(textureFilePath, textureID, false);*/
+
+	return Model(finalVertices, finalTextureUVs, finalNormals); //could pass tex data as pointer/ref?
 }
 

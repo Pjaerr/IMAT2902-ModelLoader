@@ -23,22 +23,25 @@ private:
 	GLuint m_vboTextureUVs;
 	GLuint m_vboNormals;
 
-
 	glm::vec3 m_colour;
 
 	glm::vec3 m_rotation;
 	glm::vec3 m_postion;
+	glm::vec3 m_scaleFactor = glm::vec3(1.0f, 1.0f, 1.0f);
+
+	GLuint m_textureDataID;
 
 	void loadModel();
-	
+	void createVBO();
+	void createVAO();
 
 public:
 	Model();
-	Model(std::vector<glm::vec3> vertices, std::vector<glm::vec2> textureUVs, std::vector<glm::vec3> normals);
-	Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals);
+	Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals);//,GLuint textureID);
 	void setColour(float r, float g, float b);
 	void setPosition(float x, float y, float z);
-	void setRotation(float x, float y, float z, bool degrees = false);
+	void setRotation(float x, float y, float z);
+	void setScaleFactor(float x, float y, float z);
 	void draw(GLuint &program);
 	glm::mat4 m_modelMatrix;
 };

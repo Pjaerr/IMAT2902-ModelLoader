@@ -40,8 +40,12 @@ class Camera
 
 		float m_aspectRatio; //!< The aspect ratio of this projection matrix.
 
+		float m_sensitivity = 10;
+
 		glm::mat4 viewMatrix; //!< The view matrix.
 		glm::mat4 projectionMatrix; //!< The projection matrix.
+
+		float m_drawDistance = 800.0f; //!< Far clipping plane.
 
 		/*! 
 			Computes the view matrix using this camera's direction vectors and glm::lookAt() and stores it

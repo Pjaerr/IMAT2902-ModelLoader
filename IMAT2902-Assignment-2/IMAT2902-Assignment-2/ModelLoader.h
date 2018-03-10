@@ -4,6 +4,7 @@
 
 #pragma once
 #include "Model.h"
+#include "TextureLoader.h"
 
 class ModelLoader
 {
@@ -28,6 +29,8 @@ private:
 	std::vector<float> finalTextureUVs;
 	std::vector<float> finalNormals;
 
+	TextureLoader textureLoader;
+
 public:
 	/*! ModelLoader default constructor.*/
 	ModelLoader();
@@ -40,5 +43,5 @@ public:
 	*	and indexing the aforementioned values.
 	*\param filePath The filepath containing the OBJ file.
 	*/
-	Model loadFromObj(const char * filePath);
+	Model loadFromObj(const char * modelFilePath);
 };

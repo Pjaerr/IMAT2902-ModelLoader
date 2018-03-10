@@ -10,8 +10,10 @@
 class Scene
 {
 private:
-	Model cubes[1]; //!< Temporary cube models for testing.
-	int m_numberOfCubes;
+	Model ground;
+	Model testPlane;
+	Model hangars[3];
+	int m_numberOfHangars;
 
 	/*! Models should be loaded via m_modelLoader in here.*/
 	void loadModels();
@@ -39,6 +41,8 @@ public:
 	void Start();
 
 	void keyIsPressed(unsigned char key);
+
+	void mouseIsMoved(int xPos, int yPos);
 
 	/*! The Update function runs every tick and is used to manage Model transformations 
 	*	and other actions that need to occur every tick that aren't directly related

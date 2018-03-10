@@ -13,6 +13,7 @@
 #include "Log.h"
 #include "Scene.h"
 #include "Camera.h"
+#include <chrono>
 
 class Main
 {
@@ -67,6 +68,8 @@ public:
 	*	For now it handles moving the camera around the scene.
 	*/
 	void HandleInput(unsigned char virtualKeyCode);
+
+	void HandleMouseInput(int xPosRelative, int yPosRelative);
 
 	/*! Handles the window being resized and updating OpenGL of the action so it can
 	*	compute the correct projection matrix.

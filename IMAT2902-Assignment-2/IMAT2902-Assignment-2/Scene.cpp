@@ -4,6 +4,7 @@
 Scene::Scene()
 {
 	m_modelLoader = ModelLoader();
+	camera = Camera(glm::vec3(165, 60, 160), glm::vec3(0, 0, 0));
 }
 Scene::~Scene()
 {
@@ -12,34 +13,24 @@ Scene::~Scene()
 
 void Scene::loadModels()
 {
-	m_numberOfCubes = sizeof(cubes) / sizeof(cubes[0]);
 
-	cubes[0] = m_modelLoader.loadFromObj("./Models/suzanne.obj");
+	testPlane = m_modelLoader.loadFromObj("./Models/plane_ah24.obj");
+
+	m_numberOfHangars = sizeof(hangars) / sizeof(hangars[0]);
+
+	for (int i = 0; i < m_numberOfHangars; i++)
+	{
+		hangars[i] = m_modelLoader.loadFromObj("./Models/Hangar.obj");
+	}
+
+	ground = m_modelLoader.loadFromObj("./Models/Ground.obj");
+
+	
+
 }
 
 void Scene::keyIsPressed(unsigned char key)
 {
-	//Check for keyboard input here using VK_keyname
-
-	/*Temporary Rotation code with arrow keys.*/
-	if (key == VK_LEFT)
-	{
-		camera.rotate(-2, 0);
-	}
-	if (key == VK_RIGHT)
-	{
-		camera.rotate(2, 0);
-	}
-
-	if (key == VK_UP)
-	{
-		camera.rotate(0, 2);
-	}
-	if (key == VK_DOWN)
-	{
-		camera.rotate(0, -2);
-	}
-
 	if (key == 0x57)
 	{
 		camera.move(Direction::forwards, m_cameraMovementSpeed);
@@ -59,13 +50,48 @@ void Scene::keyIsPressed(unsigned char key)
 	}
 }
 
+void Scene::mouseIsMoved(int xPos, int yPos)
+{
+	camera.rotate((float)xPos, -((float)yPos));
+}
+
+
+/*Abritrary Scene Positioning Values:
+
+	:Assuming the ground is positioned at (340, -6.3, 200).
+	:Any model at (0, 0, 0) will be at the top left of the ground.
+
+	:The maximum distance on the X a model can be moved whilst staying within the bounds of the ground
+	is 330.
+
+	:The maximum distance on the Z a model can be moved whilst staying within the bounds of the ground
+	is 400.
+
+	:Therefore, a model positioned at (165, 0, 200) will be at the center of the ground.
+*/
+
+
 void Scene::setModelTransformations()
 {
-	for (int i = 0; i < m_numberOfCubes; i++)
+	ground.setColour(0.8, 1, 0.8);
+
+	for (int i = 0; i < m_numberOfHangars; i++)
 	{
-		cubes[i].setPosition(i + i, -2.0f, -4.0f);
-		cubes[i].setColour(1.0f, 1.0f, 1.0f);
+		hangars[i].setColour(1, 0.6, 0.6);
 	}
+
+	ground.setPosition(340, -6.3f, 200);
+
+	hangars[0].setPosition(300, 0, 390);
+	hangars[1].setPosition(240, 0, 390);
+
+
+	hangars[2].setPosition(320, 0, 180);
+	hangars[2].setRotation(0, 90, 0);
+
+	testPlane.setColour(0.6, 0.6, 1);
+	testPlane.setPosition(165, -4.8f, 200);
+	testPlane.setScaleFactor(0.65f, 0.65f, 0.65f);
 }
 
 /*! The Start function gets called once when Main is preparing to be drawn. Anything
@@ -83,11 +109,7 @@ void Scene::Start()
 */
 void Scene::Update()
 {
-	m_yAngle += 80.0f;
-	for (int i = 0; i < m_numberOfCubes; i++)
-	{
-		cubes[i].setRotation(0, m_yAngle, 0, true);
-	}
+
 }
 
 /*! The Render function calls the draw function of every Model being used
@@ -95,11 +117,14 @@ void Scene::Update()
 */
 void Scene::Render(GLuint &program)
 {
-	for (int i = 0; i < m_numberOfCubes; i++)
+	ground.draw(program);
+	
+	for (int i = 0; i < m_numberOfHangars; i++)
 	{
-		cubes[i].draw(program);
+		hangars[i].draw(program);
 	}
 
+	testPlane.draw(program);
 
 	//Send the camera's view matrix to the shader.
 	Win32OpenGL::SendUniformMatrixToShader(program, camera.viewMatrix, "view_matrix");

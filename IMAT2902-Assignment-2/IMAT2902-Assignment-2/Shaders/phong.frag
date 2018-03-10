@@ -17,7 +17,7 @@ vec3 surface_specular = vec3 (1.0, 1.0, 1.0); // fully reflect specular light
 vec3 surface_ambient = vec3 (1.0, 1.0, 1.0); // fully reflect ambient light
 
 
-float specular_exponent = 100.0; // specular 'power'
+float specular_exponent = 60.0; // specular 'power'
 
 out vec4 fragment_colour; // final colour of surface
 

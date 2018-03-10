@@ -76,6 +76,25 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	SetTimer(hWnd, windowsTimerID, fastTimerDelay, (TIMERPROC)NULL);
 #endif
 
+	//High Res Mouse Input
+
+#ifndef HID_USAGE_PAGE_GENERIC
+#define HID_USAGE_PAGE_GENERIC         ((USHORT) 0x01)
+#endif
+#ifndef HID_USAGE_GENERIC_MOUSE
+#define HID_USAGE_GENERIC_MOUSE        ((USHORT) 0x02)
+#endif
+
+
+	// hires mouse
+	RAWINPUTDEVICE Rid[1];
+	Rid[0].usUsagePage = HID_USAGE_PAGE_GENERIC;
+	Rid[0].usUsage = HID_USAGE_GENERIC_MOUSE;
+	Rid[0].dwFlags = RIDEV_INPUTSINK;
+	Rid[0].hwndTarget = hWnd;
+	RegisterRawInputDevices(Rid, 1, sizeof(Rid[0]));
+
+
 	//HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WIN32GL_EX1));
 
 	HDC hdc = GetDC(hWnd);
@@ -236,6 +255,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		// pass to opengl
 		main.Resize(hdc, rect);
 		ReleaseDC(hWnd, hdc);
+
+		ClipCursor(&rect);
 		break;
 
 	case WM_KEYDOWN:
@@ -255,6 +276,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
+
+
+	case WM_INPUT:
+	{
+		UINT dwSize = 40;
+		static BYTE lpb[40];
+
+		GetRawInputData((HRAWINPUT)lParam, RID_INPUT,
+			lpb, &dwSize, sizeof(RAWINPUTHEADER));
+
+		RAWINPUT* raw = (RAWINPUT*)lpb;
+
+		if (raw->header.dwType == RIM_TYPEMOUSE)
+		{
+			int xPosRelative = raw->data.mouse.lLastX;
+			int yPosRelative = raw->data.mouse.lLastY;
+
+			main.HandleMouseInput(xPosRelative, yPosRelative);
+		}
+
+		break;
+	}
+
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}

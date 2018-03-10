@@ -85,6 +85,11 @@ void Main::HandleInput(unsigned char virtualKeyCode)
 	scene.keyIsPressed(virtualKeyCode);
 }
 
+void Main::HandleMouseInput(int xPosRelative, int yPosRelative)
+{
+	scene.mouseIsMoved(xPosRelative, yPosRelative);
+}
+
 /*! Handles the window being resized and updating OpenGL of the action so it can
 *	compute the correct projection matrix.*/
 void Main::Resize(HDC hdc, RECT rect)
