@@ -14,16 +14,18 @@ Scene::~Scene()
 void Scene::loadModels()
 {
 
-	testPlane = m_modelLoader.loadFromObj("./Models/plane_ah24.obj");
+	testPlane = m_modelLoader.loadFromObj("./Models/plane_ah24.obj", "./Textures/plane_ah24.bmp");
 
 	m_numberOfHangars = sizeof(hangars) / sizeof(hangars[0]);
 
 	for (int i = 0; i < m_numberOfHangars; i++)
 	{
-		hangars[i] = m_modelLoader.loadFromObj("./Models/Hangar.obj");
+		hangars[i] = m_modelLoader.loadFromObj("./Models/Hangar.obj", "./Textures/Hangar.bmp");
 	}
 
-	ground = m_modelLoader.loadFromObj("./Models/Ground.obj");
+	controlBuilding = m_modelLoader.loadFromObj("./Models/ControlBuilding.obj", "./Textures/ControlBuilding.bmp");
+
+	ground = m_modelLoader.loadFromObj("./Models/Ground.obj", "./Textures/Ground.bmp");
 
 	
 
@@ -73,11 +75,11 @@ void Scene::mouseIsMoved(int xPos, int yPos)
 
 void Scene::setModelTransformations()
 {
-	ground.setColour(0.8, 1, 0.8);
+	//ground.setColour(0.8, 1, 0.8);
 
 	for (int i = 0; i < m_numberOfHangars; i++)
 	{
-		hangars[i].setColour(1, 0.6, 0.6);
+		//hangars[i].setColour(1, 0.6, 0.6);
 	}
 
 	ground.setPosition(340, -6.3f, 200);
@@ -89,9 +91,12 @@ void Scene::setModelTransformations()
 	hangars[2].setPosition(320, 0, 180);
 	hangars[2].setRotation(0, 90, 0);
 
-	testPlane.setColour(0.6, 0.6, 1);
+	//testPlane.setColour(0.6, 0.6, 1);
 	testPlane.setPosition(165, -4.8f, 200);
 	testPlane.setScaleFactor(0.65f, 0.65f, 0.65f);
+
+	//controlBuilding.setColour(0.7, 0.1, 0.3);
+	controlBuilding.setPosition(100, 0, 100);
 }
 
 /*! The Start function gets called once when Main is preparing to be drawn. Anything
@@ -125,6 +130,8 @@ void Scene::Render(GLuint &program)
 	}
 
 	testPlane.draw(program);
+
+	controlBuilding.draw(program);
 
 	//Send the camera's view matrix to the shader.
 	Win32OpenGL::SendUniformMatrixToShader(program, camera.viewMatrix, "view_matrix");

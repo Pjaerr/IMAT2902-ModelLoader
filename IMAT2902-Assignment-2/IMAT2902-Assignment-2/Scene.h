@@ -13,6 +13,9 @@ private:
 	Model ground;
 	Model testPlane;
 	Model hangars[3];
+	Model controlBuilding;
+
+
 	int m_numberOfHangars;
 
 	/*! Models should be loaded via m_modelLoader in here.*/

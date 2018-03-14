@@ -37,7 +37,7 @@ private:
 
 public:
 	Model();
-	Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals);//,GLuint textureID);
+	Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals, GLuint textureID);
 	void setColour(float r, float g, float b);
 	void setPosition(float x, float y, float z);
 	void setRotation(float x, float y, float z);

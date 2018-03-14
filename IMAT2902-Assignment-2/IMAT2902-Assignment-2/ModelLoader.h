@@ -43,5 +43,5 @@ public:
 	*	and indexing the aforementioned values.
 	*\param filePath The filepath containing the OBJ file.
 	*/
-	Model loadFromObj(const char * modelFilePath);
+	Model loadFromObj(const char * modelFilePath, string textureFilePath);
 };

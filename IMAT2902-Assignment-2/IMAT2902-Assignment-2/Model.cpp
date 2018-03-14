@@ -7,13 +7,13 @@ Model::Model()
 	m_postion = glm::vec3(0, 0, 0);
 }
 
-Model::Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals)//, GLuint textureID)
+Model::Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals, GLuint textureID)
 {
 	m_fVertices = vertices;
 	m_fTextureUVs = textureUVs;
 	m_fNormals = normals;
 
-	//m_textureDataID = textureID;
+	m_textureDataID = textureID;
 
 	loadModel();
 }
@@ -96,13 +96,12 @@ void Model::draw(GLuint &program)
 	
 	Win32OpenGL::SendUniformVector3ToShader(program, m_colour, "surface_colour"); //Let the shaders alter this colour.
 	
-	//glBindTexture(GL_TEXTURE_2D, m_textureDataID);
+	glBindTexture(GL_TEXTURE_2D, m_textureDataID);
 
 	m_modelMatrix = glm::mat4(1.0f); //Initialise model matrix as a 4x4 identity matrix.
 	
 
 	m_modelMatrix = glm::translate(m_modelMatrix, m_postion);
-	
 	
 
 	/*Rotate the model matrix by the x, y and z Rot variables.*/
@@ -120,5 +119,5 @@ void Model::draw(GLuint &program)
 	GLuint numberOfElements = m_fVertices.size() / 3;
 	glDrawArrays(GL_TRIANGLES, 0, numberOfElements); //Draw VAO
 	glBindVertexArray(0); //Unbind VAO
-	//glBindTexture(GL_TEXTURE_2D, 0);
+	glBindTexture(GL_TEXTURE_2D, 0);
 }

@@ -33,8 +33,8 @@ class Main
 	/*! Lighting vectors, to be sent to the shader.*/
 	glm::vec3 m_lightColourSpecular{ 1.0f,1.0f,1.0f };
 	glm::vec3 m_lightColourDiffuse{ 0.8f, 0.8f, 0.8f };
-	glm::vec3 m_lightColourAmbient{ 0.3f, 0.3f, 0.3f };
-	glm::vec3 m_lightPosition{ 0.0f, 5.0f, 5.0f };
+	glm::vec3 m_lightColourAmbient{ 0.6f, 0.6f, 0.6f };
+	glm::vec3 m_lightPosition{ -80.0f, 240.0f, 20.0f };
 
 	Scene scene; //!< The scene that controls all of the models.
 

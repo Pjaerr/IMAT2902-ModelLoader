@@ -146,7 +146,7 @@ void ModelLoader::parseFaceData(const char * line, FILE * file)
 /*! Loads a model from an OBJ file.
 *\param filePath The filepath containing the OBJ file.
 */
-Model ModelLoader::loadFromObj(const char * modelFilePath)
+Model ModelLoader::loadFromObj(const char * modelFilePath, string textureFilePath)
 {
 	/*Clear the previous model load if using the same instance of ModelLoader
 	for multiple models.*/
@@ -186,10 +186,10 @@ Model ModelLoader::loadFromObj(const char * modelFilePath)
 		}
 	}
 
-	/*GLuint textureID;
+	GLuint textureID;
 
-	textureLoader.LoadBMP(textureFilePath, textureID, false);*/
+	textureLoader.LoadBMP(textureFilePath, textureID, false);
 
-	return Model(finalVertices, finalTextureUVs, finalNormals); //could pass tex data as pointer/ref?
+	return Model(finalVertices, finalTextureUVs, finalNormals, textureID); //could pass tex data as pointer/ref?
 }
 
