@@ -15,6 +15,7 @@ private:
 	Model hangars[3];
 	Model controlBuilding;
 
+	Model testObj;
 
 	int m_numberOfHangars;
 

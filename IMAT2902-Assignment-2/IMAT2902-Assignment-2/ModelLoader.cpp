@@ -53,7 +53,7 @@ bool ModelLoader::parseVertexData(const char * line, FILE * file)
 
 		/*Grab the next 3 words on the line and store them in a float array representing
 		the x, y and z of a vertex normal.*/
-		fscanf_s(file, "%f, %f %f\n", &vertexNormal[0], &vertexNormal[1], &vertexNormal[2]);
+		fscanf_s(file, "%f %f %f\n", &vertexNormal[0], &vertexNormal[1], &vertexNormal[2]);
 
 		for (int i = 0; i < 3; i++)
 		{

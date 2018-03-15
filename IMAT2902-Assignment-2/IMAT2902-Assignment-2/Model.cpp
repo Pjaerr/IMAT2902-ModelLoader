@@ -43,11 +43,11 @@ void Model::createVAO()
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboVertices);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
-	glBindBuffer(GL_ARRAY_BUFFER, m_vboTextureUVs);
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, NULL);
-
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboNormals);
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
+	glBindBuffer(GL_ARRAY_BUFFER, m_vboTextureUVs);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	glEnableVertexAttribArray(0); //Vertices are element 0 in the VAO.
 	glEnableVertexAttribArray(1); //Textures are element 1 in the VAO.
@@ -118,6 +118,6 @@ void Model::draw(GLuint &program)
 	glBindVertexArray(m_vao); //Bind VAO
 	GLuint numberOfElements = m_fVertices.size() / 3;
 	glDrawArrays(GL_TRIANGLES, 0, numberOfElements); //Draw VAO
-	glBindVertexArray(0); //Unbind VAO
-	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindVertexArray(NULL); //Unbind VAO
+	glBindTexture(GL_TEXTURE_2D, NULL);
 }

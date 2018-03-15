@@ -142,6 +142,8 @@ int TextureLoader::LoadBMP(string location, GLuint &texture, bool withMipMaps)
 	// Unbind the texture
 	glBindTexture(GL_TEXTURE_2D, NULL);
 
+
+
 	// Output a successful message
 	std::cout << "Texture \"" << location << "\" successfully loaded.\n";
 

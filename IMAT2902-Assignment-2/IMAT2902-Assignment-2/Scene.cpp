@@ -13,7 +13,6 @@ Scene::~Scene()
 
 void Scene::loadModels()
 {
-
 	testPlane = m_modelLoader.loadFromObj("./Models/plane_ah24.obj", "./Textures/plane_ah24.bmp");
 
 	m_numberOfHangars = sizeof(hangars) / sizeof(hangars[0]);
@@ -23,12 +22,11 @@ void Scene::loadModels()
 		hangars[i] = m_modelLoader.loadFromObj("./Models/Hangar.obj", "./Textures/Hangar.bmp");
 	}
 
-	controlBuilding = m_modelLoader.loadFromObj("./Models/ControlBuilding.obj", "./Textures/ControlBuilding.bmp");
+	controlBuilding = m_modelLoader.loadFromObj("./Models/ControlBuilding.obj", "./Textures/colourMap.bmp");
 
-	ground = m_modelLoader.loadFromObj("./Models/Ground.obj", "./Textures/Ground.bmp");
+	ground = m_modelLoader.loadFromObj("./Models/Ground.obj", "./Textures/grass.bmp");
 
-	
-
+	testObj = m_modelLoader.loadFromObj("./Models/chr_knight.obj", "./Textures/chr_knight.bmp");
 }
 
 void Scene::keyIsPressed(unsigned char key)
@@ -97,6 +95,8 @@ void Scene::setModelTransformations()
 
 	//controlBuilding.setColour(0.7, 0.1, 0.3);
 	controlBuilding.setPosition(100, 0, 100);
+
+	testObj.setPosition(0, 0, 0);
 }
 
 /*! The Start function gets called once when Main is preparing to be drawn. Anything
@@ -132,6 +132,8 @@ void Scene::Render(GLuint &program)
 	testPlane.draw(program);
 
 	controlBuilding.draw(program);
+
+	testObj.draw(program);
 
 	//Send the camera's view matrix to the shader.
 	Win32OpenGL::SendUniformMatrixToShader(program, camera.viewMatrix, "view_matrix");
