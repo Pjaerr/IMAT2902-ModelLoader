@@ -10,14 +10,13 @@
 class Scene
 {
 private:
-	Model ground;
-	Model testPlane;
+	Model plainGrassTiles[1];
 	Model hangars[3];
-	Model controlBuilding;
 
-	Model testObj;
+	Model test;
 
 	int m_numberOfHangars;
+	int m_numberOfPlainGrassTiles;
 
 	/*! Models should be loaded via m_modelLoader in here.*/
 	void loadModels();

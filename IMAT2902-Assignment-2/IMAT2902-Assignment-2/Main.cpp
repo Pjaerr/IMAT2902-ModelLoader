@@ -38,9 +38,8 @@ void Main::DestroyGLWindow()
 */
 void Main::PrepareToDraw()
 {
+	glClearColor(0, 92, 103, 255);
 	//View and Projection Matrices are computed in Camera class when it is constructed.
-
-	
 	GLuint program = m_win32OpenGL.GetShaderProgram(); //Get the shader program.
 
 	/*Send the both the projection and view matrices as well as the lighting vectors to the shader.*/

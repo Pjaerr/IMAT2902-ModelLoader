@@ -13,20 +13,21 @@ Scene::~Scene()
 
 void Scene::loadModels()
 {
-	testPlane = m_modelLoader.loadFromObj("./Models/plane_ah24.obj", "./Textures/plane_ah24.bmp");
-
 	m_numberOfHangars = sizeof(hangars) / sizeof(hangars[0]);
+
+	m_numberOfPlainGrassTiles = sizeof(plainGrassTiles) / sizeof(plainGrassTiles[0]);
 
 	for (int i = 0; i < m_numberOfHangars; i++)
 	{
-		hangars[i] = m_modelLoader.loadFromObj("./Models/Hangar.obj", "./Textures/Hangar.bmp");
+		hangars[i] = m_modelLoader.loadFromObj("./Models/Hangar_withDoors.obj", "./Textures/Hangar_withDoors.bmp");
 	}
 
-	controlBuilding = m_modelLoader.loadFromObj("./Models/ControlBuilding.obj", "./Textures/colourMap.bmp");
+	for (int i = 0; i < m_numberOfPlainGrassTiles; i++)
+	{
+		plainGrassTiles[i] = m_modelLoader.loadFromObj("./Models/grass_tile.obj", "./Textures/grass_tile.bmp");
+	}
 
-	ground = m_modelLoader.loadFromObj("./Models/Ground.obj", "./Textures/grass.bmp");
-
-	testObj = m_modelLoader.loadFromObj("./Models/chr_knight.obj", "./Textures/chr_knight.bmp");
+	test = m_modelLoader.loadFromObj("./Models/Control_Tower_Building.obj", "./Textures/Control_Tower_Building.bmp");
 }
 
 void Scene::keyIsPressed(unsigned char key)
@@ -73,15 +74,6 @@ void Scene::mouseIsMoved(int xPos, int yPos)
 
 void Scene::setModelTransformations()
 {
-	//ground.setColour(0.8, 1, 0.8);
-
-	for (int i = 0; i < m_numberOfHangars; i++)
-	{
-		//hangars[i].setColour(1, 0.6, 0.6);
-	}
-
-	ground.setPosition(340, -6.3f, 200);
-
 	hangars[0].setPosition(300, 0, 390);
 	hangars[1].setPosition(240, 0, 390);
 
@@ -89,14 +81,10 @@ void Scene::setModelTransformations()
 	hangars[2].setPosition(320, 0, 180);
 	hangars[2].setRotation(0, 90, 0);
 
-	//testPlane.setColour(0.6, 0.6, 1);
-	testPlane.setPosition(165, -4.8f, 200);
-	testPlane.setScaleFactor(0.65f, 0.65f, 0.65f);
+	plainGrassTiles[0].setPosition(165, 0, 200);
 
-	//controlBuilding.setColour(0.7, 0.1, 0.3);
-	controlBuilding.setPosition(100, 0, 100);
-
-	testObj.setPosition(0, 0, 0);
+	test.setPosition(165, 10, 200);
+	//test.setScaleFactor(0.5f, 0.5f, 0.5f);
 }
 
 /*! The Start function gets called once when Main is preparing to be drawn. Anything
@@ -122,18 +110,17 @@ void Scene::Update()
 */
 void Scene::Render(GLuint &program)
 {
-	ground.draw(program);
-	
 	for (int i = 0; i < m_numberOfHangars; i++)
 	{
 		hangars[i].draw(program);
 	}
 
-	testPlane.draw(program);
+	for (int i = 0; i < m_numberOfPlainGrassTiles; i++)
+	{
+		plainGrassTiles[i].draw(program);
+	}
 
-	controlBuilding.draw(program);
-
-	testObj.draw(program);
+	test.draw(program);
 
 	//Send the camera's view matrix to the shader.
 	Win32OpenGL::SendUniformMatrixToShader(program, camera.viewMatrix, "view_matrix");

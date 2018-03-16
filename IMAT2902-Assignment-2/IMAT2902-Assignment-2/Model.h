@@ -6,18 +6,13 @@
 #include <iostream>
 #include <vector>
 
-
 class Model
 {
-private:
-	std::vector<glm::vec3> m_vertices;
-	std::vector<glm::vec2> m_textureUVs;
-	std::vector<glm::vec3> m_normals;
-
+  private:
 	std::vector<float> m_fVertices;
 	std::vector<float> m_fTextureUVs;
 	std::vector<float> m_fNormals;
-	
+
 	GLuint m_vao;
 	GLuint m_vboVertices;
 	GLuint m_vboTextureUVs;
@@ -35,7 +30,7 @@ private:
 	void createVBO();
 	void createVAO();
 
-public:
+  public:
 	Model();
 	Model(std::vector<float> vertices, std::vector<float> textureUVs, std::vector<float> normals, GLuint textureID);
 	void setColour(float r, float g, float b);
