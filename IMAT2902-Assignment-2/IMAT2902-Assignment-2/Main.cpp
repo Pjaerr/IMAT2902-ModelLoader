@@ -23,6 +23,9 @@ void Main::CreateGLWindow(HWND hWnd, RECT rect)
 
 	m_win32OpenGL.SetupDisplay();
 
+	glEnable(GL_BLEND);
+
+
 	m_win32OpenGL.GetError(); //Checks everything is ok.
 }
 

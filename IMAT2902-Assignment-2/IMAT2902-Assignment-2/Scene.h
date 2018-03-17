@@ -10,13 +10,42 @@
 class Scene
 {
 private:
-	Model plainGrassTiles[1];
-	Model hangars[3];
+	
+	Model plainGrassTiles[41];
 
-	Model test;
+	Model runwayTiles[11];
 
-	int m_numberOfHangars;
+	Model airStripTiles[17];
+
+	Model carParkTiles[8];
+
+	Model hangars[2];
+
+	Model smallStorageBuildings;
+
+	Model buses[2];
+
+	Model cars[14];
+
+	Model entranceBuilding[2];
+
+	Model controlBuilding;
+	
+	Model controlTower;
+
+	Model cafeArea;
+
+	Model cessnas[4];
+
+	Model boeing;
+
+	int m_numberOfRunwayTiles;
 	int m_numberOfPlainGrassTiles;
+	int m_numberOfAirStripTiles;
+	int m_numberOfCarParkTiles;
+	int m_numberOfHangars;
+	int m_numberOfBuses;
+	int m_numberOfCars;
 
 	/*! Models should be loaded via m_modelLoader in here.*/
 	void loadModels();
@@ -62,5 +91,5 @@ public:
 
 	Camera camera;
 
-	float m_cameraMovementSpeed = 2.0f;
+	float m_cameraMovementSpeed = 10.0f;
 };
