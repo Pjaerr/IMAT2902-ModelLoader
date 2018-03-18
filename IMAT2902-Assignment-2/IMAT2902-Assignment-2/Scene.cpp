@@ -5,6 +5,9 @@ Scene::Scene()
 {
 	m_modelLoader = ModelLoader();
 	camera = Camera(glm::vec3(0, 60, 280), glm::vec3(0, 0, 0));
+
+	
+
 }
 Scene::~Scene()
 {
@@ -13,6 +16,7 @@ Scene::~Scene()
 
 void Scene::loadModels()
 {
+	loadExternalScene("./testlevel.txt");
 	m_numberOfPlainGrassTiles = sizeof(plainGrassTiles) / sizeof(plainGrassTiles[0]);
 	m_numberOfRunwayTiles = sizeof(runwayTiles) / sizeof(runwayTiles[0]);
 	m_numberOfAirStripTiles = sizeof(airStripTiles) / sizeof(airStripTiles[0]);
@@ -82,7 +86,7 @@ void Scene::loadModels()
 
 	for (int i = 0; i < 4; i++)
 	{
-		cessnas[i] = m_modelLoader.loadFromObj("./Models/Cessna.obj", "./Textures/plane_ah24.bmp");
+		cessnas[i] = m_modelLoader.loadFromObj("./Models/Cessna.obj", "./Textures/Cessna.bmp");
 	}
 
 	boeing = m_modelLoader.loadFromObj("./Models/boeing.obj", "./Textures/boeing.bmp");
@@ -267,8 +271,8 @@ void Scene::setModelTransformations()
 	cessnas[0].setScaleFactor(1.2f, 1.2f, 1.2f);
 
 
-	boeing.setPosition((1.5 * 126), 180, 126);
-	boeing.setRotation(0, 290, 0);
+	boeing.setPosition((5 * 126), 180, 126);
+	boeing.setRotation(0, 270, 0);
 }
 
 /*! The Start function gets called once when Main is preparing to be drawn. Anything
@@ -344,6 +348,71 @@ void Scene::Render(GLuint &program)
 	controlTower.draw(program);
 	cafeArea.draw(program);
 
+	for (int i = 0; i < models.size(); i++)
+	{
+		models.at(i).draw(program);
+	}
+	
+
 	//Send the camera's view matrix to the shader.
 	Win32OpenGL::SendUniformMatrixToShader(program, camera.viewMatrix, "view_matrix");
+}
+
+
+void Scene::loadExternalScene(const char * filePath)
+{
+	models = std::vector<Model>();
+	fileNames = std::map<std::string, std::string>();
+
+	FILE * file;
+	fopen_s(&file, filePath, "r"); //Open the file at filePath in read mode.
+
+	if (file == NULL)
+	{
+		throw std::invalid_argument("Scene file doesn't exist.");
+	}
+
+	/*Read each line of the file until end of file is reached.*/
+	while (1)
+	{
+		char line[128]; //Assumes first word of a line isn't longer than 512 characters.
+
+		int res = fscanf_s(file, "%s", line, 128); //Read the first word of the line.
+
+		if (res == EOF) //If we've reached the end of the file, exit the loop.
+		{
+			break;
+		}
+
+		if (strcmp(line, "f") == 0) //A file reference has been found.
+		{
+			char name[128];
+			char path[128];
+
+			fscanf_s(file, "%s %s\n", &name, 128, &path, 128);
+
+			fileNames.insert(std::pair<string, string>(std::string(name), std::string(path)));
+		}
+		else if (strcmp(line, "m") == 0)
+		{
+			glm::vec3 pos;
+			glm::vec3 scale;
+			glm::vec3 rot;
+
+			char modelName[128];
+			char textureName[128];
+
+			int n = fscanf_s(file, "%s %f/%f/%f %f/%f/%f %f/%f/%f %s\n", &modelName, 128,
+				&pos.x, &pos.y, &pos.z, &scale.x, &scale.y, &scale.z,
+				&rot.x, &rot.y, &rot.z, &textureName, 128);
+
+			Model model = m_modelLoader.loadFromObj(fileNames.at(std::string(modelName)).c_str(), fileNames.at(std::string(textureName)));
+			model.setPosition(pos.x, pos.y, pos.z);
+			model.setScaleFactor(scale.x, scale.y, scale.z);
+			model.setRotation(rot.x, rot.y, rot.z);
+
+			models.push_back(model);
+			
+		}
+	}
 }

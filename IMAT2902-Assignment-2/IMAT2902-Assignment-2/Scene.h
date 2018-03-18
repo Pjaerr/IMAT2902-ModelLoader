@@ -6,6 +6,7 @@
 #include "ModelLoader.h"
 #include "Model.h"
 #include "Camera.h"
+#include <map>
 
 class Scene
 {
@@ -60,6 +61,11 @@ private:
 	float m_x = 0;
 	float m_y = 0;
 
+
+	std::vector<Model> models;
+	std::map <std::string, std::string> fileNames;
+
+	void loadExternalScene(const char * filePath);
 public:
 	/*! Scene default constructor.*/
 	Scene();
