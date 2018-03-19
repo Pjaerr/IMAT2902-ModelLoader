@@ -16,16 +16,16 @@ Scene::~Scene()
 
 void Scene::loadModels()
 {
-	loadExternalScene("./testlevel.txt");
-	m_numberOfPlainGrassTiles = sizeof(plainGrassTiles) / sizeof(plainGrassTiles[0]);
+	loadExternalScene("./airportScene.txt");
+	/*m_numberOfPlainGrassTiles = sizeof(plainGrassTiles) / sizeof(plainGrassTiles[0]);
 	m_numberOfRunwayTiles = sizeof(runwayTiles) / sizeof(runwayTiles[0]);
 	m_numberOfAirStripTiles = sizeof(airStripTiles) / sizeof(airStripTiles[0]);
 	m_numberOfCarParkTiles = sizeof(carParkTiles) / sizeof(carParkTiles[0]);
 	m_numberOfHangars = sizeof(hangars) / sizeof(hangars[0]);
 	m_numberOfBuses = sizeof(buses) / sizeof(buses[0]);
-	m_numberOfCars = sizeof(cars) / sizeof(cars[0]);
+	m_numberOfCars = sizeof(cars) / sizeof(cars[0]);*/
 
-	for (int i = 0; i < m_numberOfPlainGrassTiles; i++)
+	/*for (int i = 0; i < m_numberOfPlainGrassTiles; i++)
 	{
 		plainGrassTiles[i] = m_modelLoader.loadFromObj("./Models/grass_tile.obj", "./Textures/grass_tile.bmp");
 	}
@@ -90,6 +90,7 @@ void Scene::loadModels()
 	}
 
 	boeing = m_modelLoader.loadFromObj("./Models/boeing.obj", "./Textures/boeing.bmp");
+	*/
 }
 
 void Scene::keyIsPressed(unsigned char key)
@@ -142,7 +143,7 @@ void Scene::mouseIsMoved(int xPos, int yPos)
 
 void Scene::setModelTransformations()
 {
-	for (int i = 0; i < m_numberOfPlainGrassTiles - 8; i++)
+	/*for (int i = 0; i < m_numberOfPlainGrassTiles - 8; i++)
 	{
 			plainGrassTiles[i].setPosition(i * 126, -1, 0);
 
@@ -154,15 +155,15 @@ void Scene::setModelTransformations()
 			{
 				plainGrassTiles[i].setPosition((i - 22) * 126, -1, 3 * 126);
 			}
-	}
+	}*/
 
-	for (int i = 0; i < m_numberOfRunwayTiles; i++)
+	/*for (int i = 0; i < m_numberOfRunwayTiles; i++)
 	{
 		runwayTiles[i].setPosition(i * 126, -1, 126);
 		runwayTiles[i].setRotation(0, 90, 0);
-	}
+	}*/
 
-	airStripTiles[0].setPosition(0, -1, 4 * 126);
+	/*airStripTiles[0].setPosition(0, -1, 4 * 126);
 
 	airStripTiles[1].setPosition(126, -1, 4 * 126);
 	airStripTiles[2].setPosition(126, -1, 5 * 126);
@@ -170,67 +171,77 @@ void Scene::setModelTransformations()
 
 	airStripTiles[4].setPosition(2 * 126, -1, 4 * 126);
 	airStripTiles[5].setPosition(2 * 126, -1, 5 * 126);
-	airStripTiles[6].setPosition(2 * 126, -1, 6 * 126);
+	airStripTiles[6].setPosition(2 * 126, -1, 6 * 126);*/
 
-	plainGrassTiles[33].setPosition(3 * 126, -1, 4 * 126);
+	/*plainGrassTiles[33].setPosition(3 * 126, -1, 4 * 126);
 	plainGrassTiles[34].setPosition(4 * 126, -1, 4 * 126);
 	plainGrassTiles[35].setPosition(5 * 126, -1, 4 * 126);
 	plainGrassTiles[36].setPosition(6 * 126, -1, 4 * 126);
 	plainGrassTiles[37].setPosition(7 * 126, -1, 4 * 126);
 	plainGrassTiles[38].setPosition(8 * 126, -1, 4 * 126);
 	plainGrassTiles[39].setPosition(8 * 126, -1, 5 * 126);
-	plainGrassTiles[40].setPosition(8 * 126, -1, 6 * 126);
+	plainGrassTiles[40].setPosition(8 * 126, -1, 6 * 126);*/
 
-	airStripTiles[7].setPosition(3 * 126, -1, 5 * 126);
-	airStripTiles[8].setPosition(3 * 126, -1, 6 * 126);
+	/*airStripTiles[7].setPosition(3 * 126, -1, 5 * 126);
+	airStripTiles[8].setPosition(3 * 126, -1, 6 * 126);*/
 
-	airStripTiles[9].setPosition(4 * 126, -1, 5 * 126);
+	/*airStripTiles[9].setPosition(4 * 126, -1, 5 * 126);
 	airStripTiles[10].setPosition(4 * 126, -1, 6 * 126);
 
 	airStripTiles[11].setPosition(5 * 126, -1, 5 * 126);
-	airStripTiles[12].setPosition(5 * 126, -1, 6 * 126);
+	airStripTiles[12].setPosition(5 * 126, -1, 6 * 126);*/
 
-	airStripTiles[13].setPosition(6 * 126, -1, 5 * 126);
-	airStripTiles[14].setPosition(6 * 126, -1, 6 * 126);
+	/*airStripTiles[13].setPosition(6 * 126, -1, 5 * 126);
+	airStripTiles[14].setPosition(6 * 126, -1, 6 * 126);*/
 
-	airStripTiles[15].setPosition(7 * 126, -1, 5 * 126);
-	airStripTiles[16].setPosition(7 * 126, -1, 6 * 126);
+	/*airStripTiles[15].setPosition(7 * 126, -1, 5 * 126);
+	airStripTiles[16].setPosition(7 * 126, -1, 6 * 126);*/
 
 
-	carParkTiles[0].setPosition(0, -1, 5 * 126);
+
+
+	/*carParkTiles[0].setPosition(0, -1, 5 * 126);
 	carParkTiles[0].setRotation(0, 90, 0);
-	carParkTiles[1].setPosition(0, -1, 6 * 126);
-	carParkTiles[1].setRotation(0, 90, 0);
 
-	carParkTiles[2].setPosition(9 * 126, -1, 4 * 126);
+	carParkTiles[1].setPosition(0, -1, 6 * 126);
+	carParkTiles[1].setRotation(0, 90, 0);*/
+
+	/*carParkTiles[2].setPosition(9 * 126, -1, 4 * 126);
 	carParkTiles[2].setRotation(0, 90, 0);
+
 	carParkTiles[3].setPosition(9 * 126, -1, 5 * 126);
 	carParkTiles[3].setRotation(0, 90, 0);
-	carParkTiles[4].setPosition(9 * 126, -1, 6 * 126);
-	carParkTiles[4].setRotation(0, 90, 0);
 
-	carParkTiles[5].setPosition(10 * 126, -1, 4 * 126);
+	carParkTiles[4].setPosition(9 * 126, -1, 6 * 126);
+	carParkTiles[4].setRotation(0, 90, 0);*/
+
+
+
+	/*carParkTiles[5].setPosition(10 * 126, -1, 4 * 126);
 	carParkTiles[5].setRotation(0, 90, 0);
+
 	carParkTiles[6].setPosition(10 * 126, -1, 5 * 126);
 	carParkTiles[6].setRotation(0, 90, 0);
+
 	carParkTiles[7].setPosition(10 * 126, -1, 6 * 126);
-	carParkTiles[7].setRotation(0, 90, 0);
+	carParkTiles[7].setRotation(0, 90, 0);*/
 
-	hangars[0].setPosition(126, 0, (6 * 126) - 35);
-	hangars[1].setPosition(126, 0, (5 * 126) - 35);
 
-	smallStorageBuildings.setPosition(0, 0, 4 * 126);
-	smallStorageBuildings.setRotation(0, 80, 0);
+	/*hangars[0].setPosition(126, 0, (6 * 126) - 35);
+	hangars[1].setPosition(126, 0, (5 * 126) - 35);*/
 
-	buses[0].setPosition(126, 0, (4 * 126) + 20);
+	/*smallStorageBuildings.setPosition(0, 0, 4 * 126);
+	smallStorageBuildings.setRotation(0, 80, 0);*/
+
+	/*buses[0].setPosition(126, 0, (4 * 126) + 20);
 	buses[0].setRotation(0, 40, 0);
 	buses[0].setScaleFactor(0.4f, 0.4f, 0.4f);
 
 	buses[1].setPosition(126, 0, (4 * 126) - 30);
 	buses[1].setRotation(0, -60, 0);
-	buses[1].setScaleFactor(0.4f, 0.4f, 0.4f);
+	buses[1].setScaleFactor(0.4f, 0.4f, 0.4f);*/
 
-	for (int i = 0; i < 5; i++)
+	/*for (int i = 0; i < 5; i++)
 	{
 		cars[i].setPosition(40, 0, ((5 * 126)) + i * 30);
 
@@ -248,31 +259,33 @@ void Scene::setModelTransformations()
 		cars[i].setPosition((10 * 126) + 40, 0, ((3 * 126)) + i * 32); //go 60 along
 
 		cars[i].setScaleFactor(0.4f, 0.4f, 0.4f);
-	}
+	}*/
 
-	entranceBuilding[0].setPosition(3 * 126, 0, (6 * 126) + 25);
+	/*entranceBuilding[0].setPosition(3 * 126, 0, (6 * 126) + 25);
 	entranceBuilding[0].setRotation(0, 180, 0);
 	entranceBuilding[0].setScaleFactor(0.9f, 0.9f, 0.9f);
 
-	controlBuilding.setPosition((4 * 126) + 20, 0, (6 * 126) + 25);
-	controlBuilding.setRotation(0, 180, 0);
-
-	cafeArea.setPosition((4 * 126) + 113, 0, (6 * 126) + 5);
-	cafeArea.setRotation(0, 180, 0);
-
-	controlTower.setPosition((5 * 126) + 140, 0, (6 * 126) + 25);
-	controlTower.setRotation(0, 180, 0);
-
 	entranceBuilding[1].setPosition((6 * 126) + 140, 0, (6 * 126) - 10);
-	entranceBuilding[1].setRotation(0, 45, 0);
+	entranceBuilding[1].setRotation(0, 45, 0);*/
+
+	/*controlBuilding.setPosition((4 * 126) + 20, 0, (6 * 126) + 25);
+	controlBuilding.setRotation(0, 180, 0);*/
+
+	/*cafeArea.setPosition((4 * 126) + 113, 0, (6 * 126) + 5);
+	cafeArea.setRotation(0, 180, 0);*/
+
+	/*controlTower.setPosition((5 * 126) + 140, 0, (6 * 126) + 25);
+	controlTower.setRotation(0, 180, 0);*/
+
+	
 
 
-	cessnas[0].setPosition((4 * 126), -9, (5 * 126));
+	/*cessnas[0].setPosition((4 * 126), -9, (5 * 126));
 	cessnas[0].setScaleFactor(1.2f, 1.2f, 1.2f);
 
 
 	boeing.setPosition((5 * 126), 180, 126);
-	boeing.setRotation(0, 270, 0);
+	boeing.setRotation(0, 270, 0);*/
 }
 
 /*! The Start function gets called once when Main is preparing to be drawn. Anything
@@ -298,7 +311,7 @@ void Scene::Update()
 */
 void Scene::Render(GLuint &program)
 {
-	for (int i = 0; i < m_numberOfPlainGrassTiles; i++)
+	/*for (int i = 0; i < m_numberOfPlainGrassTiles; i++)
 	{
 		plainGrassTiles[i].draw(program);
 	}
@@ -346,7 +359,7 @@ void Scene::Render(GLuint &program)
 	entranceBuilding[1].draw(program);
 	controlBuilding.draw(program);
 	controlTower.draw(program);
-	cafeArea.draw(program);
+	cafeArea.draw(program);*/
 
 	for (int i = 0; i < models.size(); i++)
 	{
