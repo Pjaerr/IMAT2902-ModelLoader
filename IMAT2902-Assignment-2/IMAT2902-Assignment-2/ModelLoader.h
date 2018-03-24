@@ -21,10 +21,12 @@ private:
 	on the f line and then store them as indexed floats inside the final vector.*/
 	void parseFaceData(const char * line, FILE * file);
 
+	//The data directly read from the file.
 	std::vector<float> unindexedVertices;
 	std::vector<float> unindexedUVs;
 	std::vector<float> unindexedNormals;
 
+	//The previous data, albeit, indexed for use with OpenGL.
 	std::vector<float> finalVertices;
 	std::vector<float> finalTextureUVs;
 	std::vector<float> finalNormals;

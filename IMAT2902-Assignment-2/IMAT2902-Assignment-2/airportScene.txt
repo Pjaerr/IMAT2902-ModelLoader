@@ -180,4 +180,12 @@ m cafeArea 617/0/761 1/1/1 0/180/0 cafeAreaTex
 
 m cessna 504/-9/630 1.2/1.2/1.2 0/0/0 cessnaTex
 
+m cessna 756/-9/378 1.2/1.2/1.2 0/52/0 cessnaTex
+
+m cessna 126/-5/126 1.2/1.2/1.2 0/180/5 cessnaTex
+
+m cessna 126/-9/725 1.2/1.2/1.2 0/180/0 cessnaTex
+
+m cessna 252/-9/550 1.2/1.2/1.2 0/112/0 cessnaTex
+
 m boeing 630/180/126 1/1/1 0/270/0 boeingTex

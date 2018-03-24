@@ -86,14 +86,12 @@ void Model::setScaleFactor(float x, float y, float z)
 	m_scaleFactor = glm::vec3(x, y, z);
 }
 
-/**Draws the model and performs any transformations as per the member variable values.
+/*! Draws the model and performs any transformations as per the member variable values.
 * Takes a program parameter, taken as a reference to allow multiple models to send
 their data to the shader using the same program.
 */
 void Model::draw(GLuint &program)
-{
-	
-	
+{	
 	Win32OpenGL::SendUniformVector3ToShader(program, m_colour, "surface_colour"); //Let the shaders alter this colour.
 	
 	glBindTexture(GL_TEXTURE_2D, m_textureDataID);
