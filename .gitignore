@@ -4,220 +4,220 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
+IMAT2902-Assignment-2/*.suo
+IMAT2902-Assignment-2/*.user
+IMAT2902-Assignment-2/*.userosscache
+IMAT2902-Assignment-2/*.sln.docstates
 
 # User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
+IMAT2902-Assignment-2/*.userprefs
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-bld/
-[Bb]in/
-[Oo]bj/
-[Ll]og/
+IMAT2902-Assignment-2/[Dd]ebug/
+IMAT2902-Assignment-2/[Dd]ebugPublic/
+IMAT2902-Assignment-2/[Rr]elease/
+IMAT2902-Assignment-2/[Rr]eleases/
+IMAT2902-Assignment-2/x64/
+IMAT2902-Assignment-2/x86/
+IMAT2902-Assignment-2/bld/
+IMAT2902-Assignment-2/[Bb]in/
+IMAT2902-Assignment-2/[Oo]bj/
+IMAT2902-Assignment-2/[Ll]og/
 
 # Visual Studio 2015/2017 cache/options directory
-.vs/
+IMAT2902-Assignment-2/.vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
 # Visual Studio 2017 auto generated files
-Generated\ Files/
+IMAT2902-Assignment-2/Generated\ Files/
 
 # MSTest test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
+IMAT2902-Assignment-2/[Tt]est[Rr]esult*/
+IMAT2902-Assignment-2/[Bb]uild[Ll]og.*
 
 # NUNIT
-*.VisualState.xml
-TestResult.xml
+IMAT2902-Assignment-2/*.VisualState.xml
+IMAT2902-Assignment-2/TestResult.xml
 
 # Build Results of an ATL Project
-[Dd]ebugPS/
-[Rr]eleasePS/
-dlldata.c
+IMAT2902-Assignment-2/[Dd]ebugPS/
+IMAT2902-Assignment-2/[Rr]eleasePS/
+IMAT2902-Assignment-2/dlldata.c
 
 # Benchmark Results
-BenchmarkDotNet.Artifacts/
+IMAT2902-Assignment-2/BenchmarkDotNet.Artifacts/
 
 # .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
-**/Properties/launchSettings.json
+IMAT2902-Assignment-2/project.lock.json
+IMAT2902-Assignment-2/project.fragment.lock.json
+IMAT2902-Assignment-2/artifacts/
+IMAT2902-Assignment-2/**/Properties/launchSettings.json
 
 # StyleCop
-StyleCopReport.xml
+IMAT2902-Assignment-2/StyleCopReport.xml
 
 # Files built by Visual Studio
-*_i.c
-*_p.c
-*_i.h
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.svclog
-*.scc
+IMAT2902-Assignment-2/*_i.c
+IMAT2902-Assignment-2/*_p.c
+IMAT2902-Assignment-2/*_i.h
+IMAT2902-Assignment-2/*.ilk
+IMAT2902-Assignment-2/*.meta
+IMAT2902-Assignment-2/*.obj
+IMAT2902-Assignment-2/*.pch
+IMAT2902-Assignment-2/*.pdb
+IMAT2902-Assignment-2/*.pgc
+IMAT2902-Assignment-2/*.pgd
+IMAT2902-Assignment-2/*.rsp
+IMAT2902-Assignment-2/*.sbr
+IMAT2902-Assignment-2/*.tlb
+IMAT2902-Assignment-2/*.tli
+IMAT2902-Assignment-2/*.tlh
+IMAT2902-Assignment-2/*.tmp
+IMAT2902-Assignment-2/*.tmp_proj
+IMAT2902-Assignment-2/*.log
+IMAT2902-Assignment-2/*.vspscc
+IMAT2902-Assignment-2/*.vssscc
+IMAT2902-Assignment-2/.builds
+IMAT2902-Assignment-2/*.pidb
+IMAT2902-Assignment-2/*.svclog
+IMAT2902-Assignment-2/*.scc
 
 # Chutzpah Test files
-_Chutzpah*
+IMAT2902-Assignment-2/_Chutzpah*
 
 # Visual C++ cache files
-ipch/
-*.aps
-*.ncb
-*.opendb
-*.opensdf
-*.sdf
-*.cachefile
-*.VC.db
-*.VC.VC.opendb
+IMAT2902-Assignment-2/ipch/
+IMAT2902-Assignment-2/*.aps
+IMAT2902-Assignment-2/*.ncb
+IMAT2902-Assignment-2/*.opendb
+IMAT2902-Assignment-2/*.opensdf
+IMAT2902-Assignment-2/*.sdf
+IMAT2902-Assignment-2/*.cachefile
+IMAT2902-Assignment-2/*.VC.db
+IMAT2902-Assignment-2/*.VC.VC.opendb
 
 # Visual Studio profiler
-*.psess
-*.vsp
-*.vspx
-*.sap
+IMAT2902-Assignment-2/*.psess
+IMAT2902-Assignment-2/*.vsp
+IMAT2902-Assignment-2/*.vspx
+IMAT2902-Assignment-2/*.sap
 
 # Visual Studio Trace Files
-*.e2e
+IMAT2902-Assignment-2/*.e2e
 
 # TFS 2012 Local Workspace
-$tf/
+IMAT2902-Assignment-2/$tf/
 
 # Guidance Automation Toolkit
-*.gpState
+IMAT2902-Assignment-2/*.gpState
 
 # ReSharper is a .NET coding add-in
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
+IMAT2902-Assignment-2/_ReSharper*/
+IMAT2902-Assignment-2/*.[Rr]e[Ss]harper
+IMAT2902-Assignment-2/*.DotSettings.user
 
 # JustCode is a .NET coding add-in
-.JustCode
+IMAT2902-Assignment-2/.JustCode
 
 # TeamCity is a build add-in
-_TeamCity*
+IMAT2902-Assignment-2/_TeamCity*
 
 # DotCover is a Code Coverage Tool
-*.dotCover
+IMAT2902-Assignment-2/*.dotCover
 
 # AxoCover is a Code Coverage Tool
-.axoCover/*
-!.axoCover/settings.json
+IMAT2902-Assignment-2/.axoCover/*
+IMAT2902-Assignment-2/!.axoCover/settings.json
 
 # Visual Studio code coverage results
-*.coverage
-*.coveragexml
+IMAT2902-Assignment-2/*.coverage
+IMAT2902-Assignment-2/*.coveragexml
 
 # NCrunch
-_NCrunch_*
-.*crunch*.local.xml
-nCrunchTemp_*
+IMAT2902-Assignment-2/_NCrunch_*
+IMAT2902-Assignment-2/.*crunch*.local.xml
+IMAT2902-Assignment-2/nCrunchTemp_*
 
 # MightyMoose
-*.mm.*
-AutoTest.Net/
+IMAT2902-Assignment-2/*.mm.*
+IMAT2902-Assignment-2/AutoTest.Net/
 
 # Web workbench (sass)
-.sass-cache/
+IMAT2902-Assignment-2/.sass-cache/
 
 # Installshield output folder
-[Ee]xpress/
+IMAT2902-Assignment-2/[Ee]xpress/
 
 # DocProject is a documentation generator add-in
-DocProject/buildhelp/
-DocProject/Help/*.HxT
-DocProject/Help/*.HxC
-DocProject/Help/*.hhc
-DocProject/Help/*.hhk
-DocProject/Help/*.hhp
-DocProject/Help/Html2
-DocProject/Help/html
+IMAT2902-Assignment-2/DocProject/buildhelp/
+IMAT2902-Assignment-2/DocProject/Help/*.HxT
+IMAT2902-Assignment-2/DocProject/Help/*.HxC
+IMAT2902-Assignment-2/DocProject/Help/*.hhc
+IMAT2902-Assignment-2/DocProject/Help/*.hhk
+IMAT2902-Assignment-2/DocProject/Help/*.hhp
+IMAT2902-Assignment-2/DocProject/Help/Html2
+IMAT2902-Assignment-2/DocProject/Help/html
 
 # Click-Once directory
-publish/
+IMAT2902-Assignment-2/publish/
 
 # Publish Web Output
-*.[Pp]ublish.xml
-*.azurePubxml
+IMAT2902-Assignment-2/*.[Pp]ublish.xml
+IMAT2902-Assignment-2/*.azurePubxml
 # Note: Comment the next line if you want to checkin your web deploy settings,
 # but database connection strings (with potential passwords) will be unencrypted
-*.pubxml
-*.publishproj
+IMAT2902-Assignment-2/*.pubxml
+IMAT2902-Assignment-2/*.publishproj
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
 # checkin your Azure Web App publish settings, but sensitive information contained
 # in these scripts will be unencrypted
-PublishScripts/
+IMAT2902-Assignment-2/PublishScripts/
 
 # NuGet Packages
-*.nupkg
+IMAT2902-Assignment-2/*.nupkg
 # The packages folder can be ignored because of Package Restore
-**/[Pp]ackages/*
+IMAT2902-Assignment-2/**/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
-!**/[Pp]ackages/build/
+IMAT2902-Assignment-2/!**/[Pp]ackages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/[Pp]ackages/repositories.config
 # NuGet v3's project.json files produces more ignorable files
-*.nuget.props
-*.nuget.targets
+IMAT2902-Assignment-2/*.nuget.props
+IMAT2902-Assignment-2/*.nuget.targets
 
 # Microsoft Azure Build Output
-csx/
-*.build.csdef
+IMAT2902-Assignment-2/csx/
+IMAT2902-Assignment-2/*.build.csdef
 
 # Microsoft Azure Emulator
-ecf/
-rcf/
+IMAT2902-Assignment-2/ecf/
+IMAT2902-Assignment-2/rcf/
 
 # Windows Store app package directories and files
-AppPackages/
-BundleArtifacts/
-Package.StoreAssociation.xml
-_pkginfo.txt
-*.appx
+IMAT2902-Assignment-2/AppPackages/
+IMAT2902-Assignment-2/BundleArtifacts/
+IMAT2902-Assignment-2/Package.StoreAssociation.xml
+IMAT2902-Assignment-2/_pkginfo.txt
+IMAT2902-Assignment-2/*.appx
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
-*.[Cc]ache
+IMAT2902-Assignment-2/*.[Cc]ache
 # but keep track of directories ending in .cache
-!*.[Cc]ache/
+IMAT2902-Assignment-2/!*.[Cc]ache/
 
 # Others
-ClientBin/
-~$*
-*~
-*.dbmdl
-*.dbproj.schemaview
-*.jfm
-*.pfx
-*.publishsettings
-orleans.codegen.cs
+IMAT2902-Assignment-2/ClientBin/
+IMAT2902-Assignment-2/~$*
+IMAT2902-Assignment-2/*~
+IMAT2902-Assignment-2/*.dbmdl
+IMAT2902-Assignment-2/*.dbproj.schemaview
+IMAT2902-Assignment-2/*.jfm
+IMAT2902-Assignment-2/*.pfx
+IMAT2902-Assignment-2/*.publishsettings
+IMAT2902-Assignment-2/orleans.codegen.cs
 
 # Including strong name files can present a security risk 
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
@@ -228,102 +228,96 @@ orleans.codegen.cs
 #bower_components/
 
 # RIA/Silverlight projects
-Generated_Code/
+IMAT2902-Assignment-2/Generated_Code/
 
 # Backup & report files from converting an old project file
 # to a newer Visual Studio version. Backup files are not needed,
 # because we have git ;-)
-_UpgradeReport_Files/
-Backup*/
-UpgradeLog*.XML
-UpgradeLog*.htm
-ServiceFabricBackup/
+IMAT2902-Assignment-2/_UpgradeReport_Files/
+IMAT2902-Assignment-2/Backup*/
+IMAT2902-Assignment-2/UpgradeLog*.XML
+IMAT2902-Assignment-2/UpgradeLog*.htm
+IMAT2902-Assignment-2/ServiceFabricBackup/
 
 # SQL Server files
-*.mdf
-*.ldf
-*.ndf
+IMAT2902-Assignment-2/*.mdf
+IMAT2902-Assignment-2/*.ldf
+IMAT2902-Assignment-2/*.ndf
 
 # Business Intelligence projects
-*.rdl.data
-*.bim.layout
-*.bim_*.settings
+IMAT2902-Assignment-2/*.rdl.data
+IMAT2902-Assignment-2/*.bim.layout
+IMAT2902-Assignment-2/*.bim_*.settings
 
 # Microsoft Fakes
-FakesAssemblies/
+IMAT2902-Assignment-2/FakesAssemblies/
 
 # GhostDoc plugin setting file
-*.GhostDoc.xml
+IMAT2902-Assignment-2/*.GhostDoc.xml
 
 # Node.js Tools for Visual Studio
-.ntvs_analysis.dat
-node_modules/
+IMAT2902-Assignment-2/.ntvs_analysis.dat
+IMAT2902-Assignment-2/node_modules/
 
 # TypeScript v1 declaration files
-typings/
+IMAT2902-Assignment-2/typings/
 
 # Visual Studio 6 build log
-*.plg
+IMAT2902-Assignment-2/*.plg
 
 # Visual Studio 6 workspace options file
-*.opt
+IMAT2902-Assignment-2/*.opt
 
 # Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
-*.vbw
+IMAT2902-Assignment-2/*.vbw
 
 # Visual Studio LightSwitch build output
-**/*.HTMLClient/GeneratedArtifacts
-**/*.DesktopClient/GeneratedArtifacts
-**/*.DesktopClient/ModelManifest.xml
-**/*.Server/GeneratedArtifacts
-**/*.Server/ModelManifest.xml
-_Pvt_Extensions
+IMAT2902-Assignment-2/**/*.HTMLClient/GeneratedArtifacts
+IMAT2902-Assignment-2/**/*.DesktopClient/GeneratedArtifacts
+IMAT2902-Assignment-2/**/*.DesktopClient/ModelManifest.xml
+IMAT2902-Assignment-2/**/*.Server/GeneratedArtifacts
+IMAT2902-Assignment-2/**/*.Server/ModelManifest.xml
+IMAT2902-Assignment-2/_Pvt_Extensions
 
 # Paket dependency manager
-.paket/paket.exe
-paket-files/
+IMAT2902-Assignment-2/.paket/paket.exe
+IMAT2902-Assignment-2/paket-files/
 
 # FAKE - F# Make
-.fake/
+IMAT2902-Assignment-2/.fake/
 
 # JetBrains Rider
-.idea/
-*.sln.iml
+IMAT2902-Assignment-2/.idea/
+IMAT2902-Assignment-2/*.sln.iml
 
 # CodeRush
-.cr/
+IMAT2902-Assignment-2/.cr/
 
 # Python Tools for Visual Studio (PTVS)
-__pycache__/
-*.pyc
+IMAT2902-Assignment-2/__pycache__/
+IMAT2902-Assignment-2/*.pyc
 
 # Cake - Uncomment if you are using it
 # tools/**
 # !tools/packages.config
 
 # Tabs Studio
-*.tss
+IMAT2902-Assignment-2/*.tss
 
 # Telerik's JustMock configuration file
-*.jmconfig
+IMAT2902-Assignment-2/*.jmconfig
 
 # BizTalk build output
-*.btp.cs
-*.btm.cs
-*.odx.cs
-*.xsd.cs
+IMAT2902-Assignment-2/*.btp.cs
+IMAT2902-Assignment-2/*.btm.cs
+IMAT2902-Assignment-2/*.odx.cs
+IMAT2902-Assignment-2/*.xsd.cs
 
 # OpenCover UI analysis results
-OpenCover/
+IMAT2902-Assignment-2/OpenCover/
 
 # Azure Stream Analytics local run output 
-ASALocalRun/
+IMAT2902-Assignment-2/ASALocalRun/
 
 # MSBuild Binary and Structured Log
-*.binlog
-
-/gl
-
-/glm
-
-/Assignment_Resources
+IMAT2902-Assignment-2/*.binlog

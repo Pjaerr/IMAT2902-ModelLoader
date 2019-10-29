@@ -91,7 +91,9 @@ void Model::setScaleFactor(float x, float y, float z)
 their data to the shader using the same program.
 */
 void Model::draw(GLuint &program)
-{	
+{
+	
+	
 	Win32OpenGL::SendUniformVector3ToShader(program, m_colour, "surface_colour"); //Let the shaders alter this colour.
 	
 	glBindTexture(GL_TEXTURE_2D, m_textureDataID);

@@ -87,13 +87,6 @@ void ModelLoader::parseFaceData(const char * line, FILE * file)
 			&vertexIndex.at(1), &textureUvIndex.at(1), &vertexNormalIndex.at(1),
 			&vertexIndex.at(2), &textureUvIndex.at(2), &vertexNormalIndex.at(2));
 
-		// f 1/2/3 4/5/6 7/8/9
-		// vertices.push_back(unindexedvertices[faceindices[0]);
-		/* for int i = 0; i < 9; i++
-			vertices.push_back(unindexedVertices[faceindices[i])
-			textureuv.push_back(unindexedVertices[faceindices[i + 1])
-			normals.push_back(unindexedVertices[faceindices[i + 2])
-		*/
 
 		if (piecesOfData == 9)
 		{
